@@ -60,9 +60,19 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 //Write a function named evenFinder that is given nums as it's only argument and removes all values that aren't even from the given array.
 
 var evenFinder = function(nums) {
-  
-}
-
+  var i = 0;
+  while (i < nums.length) {
+    if (nums[i] % 2 !== 0) {
+      nums.splice(i, 1);
+      i = i;
+    }
+    else {
+      i++;
+    }
+  };
+};
+evenFinder(nums);
+alert(nums);
 
 //Next problem
 
@@ -74,8 +84,22 @@ var odds = [];
 //Have divider return an Array with the first item in the array being the evens array (all the even values from nums) and the second item in the Array being the odds array(all the odd values from nums).
 
 
-
-  //Code Here
+var divider = function(nums, evens, odds) {
+  var i = 0;
+  while (i < nums.length) {
+    if (nums[i] % 2 === 0) {
+      evens.push(nums.slice(i, i + 1));
+    }
+    else {
+      odds.push(nums.slice(i, i + 1));
+    }
+    i++;
+  }
+  nums = evens.concat(odds);
+  return nums;
+};
+divider(nums, evens, odds);
+alert(divider(nums, evens, odds));
 
 
 //Next Problem
@@ -87,7 +111,21 @@ var getRandomArbitrary = function() {
 var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 //Above you're given a function that will return a random number between 0 and 30, and an array full or numbers. Your job is to write a function named finder that will get a random number, then loop through the array to see if that random number is in the array. If it is, return true, if it's not, return false
 
-  //Code Here
+var finder = function() {
+  var randomNumber = Math.floor(Math.random() * 30) + 1;
+  var x = true;
+  for (var i = 0; i < numbers.length; i++) {
+    if (numbers[i] === randomNumber) {
+      x = true;
+      break;
+    }
+    else {
+      x = false;
+    }
+  }
+  return x;
+};
+finder();
 
 
 //Next problem
@@ -95,9 +133,13 @@ var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 
 
 var str = 'this is my sentence';
+
 //Write a function called reverse that takes is given str as it's only argument and returns that string after it's been reversed
 
-  //Code Here
+var reverse = function(str) {
+  return str.split('').reverse().join('');
+}
+alert(reverse(str));
 
 
 //Next Problem
